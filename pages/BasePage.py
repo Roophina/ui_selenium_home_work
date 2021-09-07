@@ -36,3 +36,8 @@ class BasePage:
             .until(ec.visibility_of_element_located(locator))
             .click()
         )
+
+    def find_element_by_class_name(self, locator):
+        return WebDriverWait(self.app.driver, 20).until(
+            ec.visibility_of_element_located(locator)
+        )
