@@ -1,3 +1,5 @@
+import allure
+
 from common.fakers import BasicData
 from locators.locators_edit_information import LocatorsEditInformation
 from locators.locators_personal_account import LocatorsPersonalAccount
@@ -5,6 +7,7 @@ from locators.locators_preferences_page import LocatorsPreferences
 
 
 class TestEditInformation:
+    @allure.story("Позитивный тест")
     def test_valid_edit_one_basic_data(self, authorization_fixture, app_fixture):
         """
         Steps
@@ -31,8 +34,14 @@ class TestEditInformation:
         app_fixture.edit_information.click_on_button(
             LocatorsEditInformation.BUTTON_UPDATE_PROFILE
         )
-        assert app_fixture.preferences.find_element(LocatorsPreferences.NOTIFICATION)
+        with allure.step(
+            "Проверяем позитивный кейс редактирования данных пользователя"
+        ):
+            assert app_fixture.preferences.find_element(
+                LocatorsPreferences.NOTIFICATION
+            )
 
+    @allure.story("Негативный тест")
     def test_edit_basic_with_empty_email(self, authorization_fixture, app_fixture):
         """
         Steps
@@ -55,6 +64,9 @@ class TestEditInformation:
         app_fixture.preferences.click_on_link(LocatorsPreferences.EDIT_INFORMATION)
         email = app_fixture.edit_information.find_element(LocatorsEditInformation.EMAIL)
         app_fixture.edit_information.clear_element(email)
-        assert app_fixture.edit_information.find_element(
-            LocatorsEditInformation.ERROR_EMAIL
-        )
+        with allure.step(
+            "Редактирование данных пользователя при незаполнении обязательного поля"
+        ):
+            assert app_fixture.edit_information.find_element(
+                LocatorsEditInformation.ERROR_EMAIL
+            )
