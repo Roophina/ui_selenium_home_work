@@ -6,10 +6,10 @@ from pages.BasePage import BasePage
 
 class PersonalAccountPage(BasePage):
     def user_menu(self) -> WebElement:
-        return self.find_element(LocatorsPersonalAccount.PERSONAL_ACCOUNT_MENU)
+        return self.find_element(LocatorsPersonalAccount.MENU)
 
     def exit(self) -> WebElement:
-        return self.find_element(LocatorsPersonalAccount.PERSONAL_ACCOUNT_EXIT)
+        return self.find_element(LocatorsPersonalAccount.EXIT)
 
     def exit_from_account(self):
         self.click_element(self.user_menu())

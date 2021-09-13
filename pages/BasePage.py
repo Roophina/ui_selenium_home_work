@@ -41,3 +41,7 @@ class BasePage:
         return WebDriverWait(self.app.driver, 20).until(
             ec.visibility_of_element_located(locator)
         )
+
+    @staticmethod
+    def clear_element(element):
+        element.clear
