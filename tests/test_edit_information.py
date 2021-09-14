@@ -13,11 +13,11 @@ class TestEditInformation:
         Steps
         1. Click on user menu
         2. Click on preferences
-        3. Clink on the link "Редактировать информацию"
+        3. Click on the link "Редактировать информацию"
         4. Find field "Город"
-        6. Fill field "Город" with valid data
-        7. Click on the button "Обновить профиль"
-        8. Check update.
+        5. Fill field "Город" with valid data
+        6. Click on the button "Обновить профиль"
+        7. Check update.
         """
         app_fixture.personal_account.click_element(
             app_fixture.personal_account.user_menu()
@@ -47,11 +47,11 @@ class TestEditInformation:
         Steps
         1. Click on user menu
         2. Click on preferences
-        3. Clink on the link "Редактировать информацию"
+        3. Click on the link "Редактировать информацию"
         4. Find field "Адрес электронной почты"
-        6. Clear field "Адрес электронной почты"
-        7. Click on the button "Обновить профиль"
-        8. Check update.
+        5. Clear field "Адрес электронной почты"
+        6. Click on the button "Обновить профиль"
+        7. Check update.
         """
         app_fixture.personal_account.click_element(
             app_fixture.personal_account.user_menu()
