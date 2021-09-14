@@ -14,3 +14,9 @@ class PersonalAccountPage(BasePage):
     def exit_from_account(self):
         self.click_element(self.user_menu())
         self.click_element(self.exit())
+
+    def side_panel(self) -> WebElement:
+        return self.find_element(LocatorsPersonalAccount.SIDE_PANEL)
+
+    def administration(self) -> WebElement:
+        return self.find_element(LocatorsPersonalAccount.ADMINISTRATION)

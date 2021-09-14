@@ -45,3 +45,8 @@ class BasePage:
     @staticmethod
     def clear_element(element):
         element.clear
+
+    def find_element_by_link_text(self, locator):
+        return WebDriverWait(self.app.driver, 20).until(
+            ec.visibility_of_element_located(locator)
+        )
