@@ -7,10 +7,10 @@ class BasicData:
     def __init__(self, city=None):
         self.city = city
 
-    @staticmethod
-    def random():
+    @classmethod
+    def random(cls):
         city = fake.city_name()
-        return BasicData(city)
+        return cls(city)
 
 
 class NewCourse:
@@ -18,8 +18,8 @@ class NewCourse:
         self.full_name = full_name
         self.short_name = short_name
 
-    @staticmethod
-    def random():
+    @classmethod
+    def random(cls):
         full_name = fake.text(max_nb_chars=40)
         short_name = fake.text(max_nb_chars=20)
-        return NewCourse(full_name, short_name)
+        return cls(full_name, short_name)
