@@ -41,10 +41,10 @@
 
 И/ИЛИ
 
-1) Установить allure-pytest (`pip install allure-pytest`)
+1) Установить allure-pytest командой в терминале `pip install allure-pytest`
 
-2) Создать папку для загрузки временных результатов тестов (`pytest --alluredir reposts`)
+2) Создать папку для загрузки временных результатов тестов и запустить тесты командой в терминале `pytest --alluredir reposts`
 
-3) Запустить тесты (`python -m pytest tests .\reposts`)
+2.1) Если папка для загрузки временных результатов уже создана, то для запуска тестов выполнить команду в терминале `python -m pytest tests .\reposts`
 
-4) Сформировать отчет: (`allure serve .\reposts`)
+3) Сформировать отчет командой в терминале `allure serve .\reposts`
