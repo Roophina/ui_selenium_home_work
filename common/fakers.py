@@ -1,5 +1,7 @@
 from faker import Faker
 
+from common.constants import Constants
+
 fake = Faker("Ru-ru")
 
 
@@ -21,5 +23,5 @@ class NewCourse:
     @classmethod
     def random(cls):
         full_name = fake.text(max_nb_chars=40)
-        short_name = fake.text(max_nb_chars=20)
+        short_name = fake.text(max_nb_chars=20) + Constants.TEST_UUID
         return cls(full_name, short_name)
