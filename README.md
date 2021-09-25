@@ -31,7 +31,7 @@
 
 Отчеты при помощи Allure:
 
-1) Установить локально Allure commandline application
+1) Установить локально Allure commandline application (посмотреть инструкцию можно [здесь](https://docs.qameta.io/allure/))
 
 2) Выполнить в терминале команду `pytest --alluredir=allure_reports`
 
