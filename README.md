@@ -45,6 +45,6 @@
 
 2) Созlать папку для загрузки временных результатов тестов (pytest --alluredir reposts)
 
-3) Запустить тесты (python -m pytest tests путь к файлу\reposts)
+3) Запустить тесты (python -m pytest tests .\reposts)
 
-4) Сформировать отчет: (allure serve путь к файлу\reposts)
+4) Сформировать отчет: (allure serve .\reposts)
