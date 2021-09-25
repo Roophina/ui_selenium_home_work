@@ -1,4 +1,4 @@
-# Тесты для приложения "Курсы" (https://qacoursemoodle.innopolis.university/)
+# Тесты для приложения [Курсы](https://qacoursemoodle.innopolis.university/)
 [![Build Status](https://app.travis-ci.com/Roophina/ui_selenium_home_work.svg?branch=master)](https://app.travis-ci.com/Roophina/ui_selenium_home)
 
 
