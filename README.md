@@ -19,13 +19,13 @@
 
 3) Создать в PycharmProjects пустую директорию
 
-4) Инициировать git (git init)
+4) Инициировать git (`git init`)
 
-5) Скачать файлы из репозитория (git clone https://github.com/Roophina/ui_selenium_home_work)
+5) Скачать файлы из репозитория (`git clone https://github.com/Roophina/ui_selenium_home_work`)
 
 6) Открыть проект
 
-7) Установить пакеты из файла requirements.txt (pip install -r requirements.txt)
+7) Установить пакеты из файла requirements.txt (`pip install -r requirements.txt`)
 
 
 
@@ -33,18 +33,18 @@
 
 1) Установить локально Allure commandline application
 
-2) Выполнить в терминале команду pytest --alluredir=allure_reports
+2) Выполнить в терминале команду `pytest --alluredir=allure_reports`
 
 3) Перезапустить PyCharm
 
-4) Выполнить в терминале команду allure serve allure_reports
+4) Выполнить в терминале команду `allure serve allure_reports`
 
 И/ИЛИ
 
-1) Установить allure-pytest (pip install allure-pytest)
+1) Установить allure-pytest (`pip install allure-pytest`)
 
-2) Созlать папку для загрузки временных результатов тестов (pytest --alluredir reposts)
+2) Создать папку для загрузки временных результатов тестов (`pytest --alluredir reposts`)
 
-3) Запустить тесты (python -m pytest tests .\reposts)
+3) Запустить тесты (`python -m pytest tests .\reposts`)
 
-4) Сформировать отчет: (allure serve .\reposts)
+4) Сформировать отчет: (`allure serve .\reposts`)
