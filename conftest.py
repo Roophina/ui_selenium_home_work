@@ -36,7 +36,7 @@ def app_fixture(request):
 
 @pytest.fixture
 def authorization_fixture(app_fixture):
-    app_fixture.open_page(Constants.MAIN_PAGE)
+    app_fixture.open_main_page()
     app_fixture.main_page.click_on_link(LocatorsMainPage.LINK_ENTER)
     login = app_fixture.login_page.find_element(LocatorsLoginPage.LOGIN)
     app_fixture.login_page.fill_element(login, Constants.VALID_LOGIN)

@@ -11,6 +11,7 @@ from pages.PreferencesPage import PreferencesPage
 
 class App:
     def __init__(self, driver, url):
+        self.url = url
         self.driver = driver
         self.main_page = MainPage(self)
         self.login_page = LoginPage(self)
@@ -22,8 +23,8 @@ class App:
         self.course_edit = CourseEditPage(self)
         self.course_delete = CourseDeletePage(self)
 
-    def open_page(self, url):
-        self.driver.get(url)
+    def open_main_page(self):
+        self.driver.get(self.url)
 
     def quit(self):
         self.driver.quit()
