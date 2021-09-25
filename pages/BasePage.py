@@ -16,9 +16,8 @@ class BasePage:
     def click_element(element):
         element.click()
 
-    @staticmethod
-    def fill_element(element, text):
-        element.clear()
+    def fill_element(self, element, text):
+        self.clear_element(element)
         if text:
             element.send_keys(text)
             return element
@@ -44,7 +43,7 @@ class BasePage:
 
     @staticmethod
     def clear_element(element):
-        element.clear
+        element.clear()
 
     def find_element_by_link_text(self, locator):
         return WebDriverWait(self.app.driver, 20).until(
