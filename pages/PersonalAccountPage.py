@@ -8,6 +8,9 @@ class PersonalAccountPage(BasePage):
     def user_menu(self) -> WebElement:
         return self.find_element(LocatorsPersonalAccount.MENU)
 
+    def click_on_user_menu(self):
+        self.click_element(self.user_menu())
+
     def exit(self) -> WebElement:
         return self.find_element(LocatorsPersonalAccount.EXIT)
 
@@ -29,3 +32,9 @@ class PersonalAccountPage(BasePage):
 
     def check_personal_account(self):
         return self.find_element(LocatorsPersonalAccount.PERSONAL_ACCOUNT)
+
+    def preferences(self) -> WebElement:
+        return self.find_element(LocatorsPersonalAccount.PREFERENCES)
+
+    def go_to_preferences(self):
+        self.click_element(self.preferences())
