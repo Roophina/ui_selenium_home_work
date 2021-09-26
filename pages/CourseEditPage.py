@@ -13,3 +13,6 @@ class CourseEditPage(BasePage):
 
     def click_on_save_and_return(self):
         self.click_on_button(LocatorsCourseEditPage.SAVE_AND_RETURN)
+
+    def find_error_message_about_short_name(self) -> WebElement:
+        return self.find_element(LocatorsCourseEditPage.ERROR_SHORT_NAME)
