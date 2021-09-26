@@ -2,7 +2,6 @@ import allure
 
 from common.fakers import NewCourse
 from locators.locators_admin_page import LocatorsAdminPage
-from locators.locators_course_delete_page import LocatorsCourseDeletePage
 from locators.locators_course_edit_page import LocatorsCourseEditPage
 from locators.locators_course_management_page import LocatorsCourseManagementPage
 
@@ -21,45 +20,25 @@ class TestAddCourse:
         7. Click on the button "Сохранить и вернуться"
         8. Check creation.
         """
-        app_fixture.personal_account.click_element(
-            app_fixture.personal_account.side_panel()
-        )
-        app_fixture.personal_account.click_element(
-            app_fixture.personal_account.administration()
-        )
-        app_fixture.admin_page.click_on_link(LocatorsAdminPage.COURSE_MANAGEMENT_LINK)
-        app_fixture.course_management.click_on_link(
-            LocatorsCourseManagementPage.CREATE_NEW_COURSE
-        )
-        full_name = app_fixture.course_edit.find_element(
-            LocatorsCourseEditPage.FULL_NAME
-        )
-        add_full_name = NewCourse.random().full_name
-        app_fixture.course_edit.fill_element(full_name, add_full_name)
-        short_name = app_fixture.course_edit.find_element(
-            LocatorsCourseEditPage.SHORT_NAME
-        )
-        add_short_name = NewCourse.random().short_name
-        app_fixture.course_edit.fill_element(short_name, add_short_name)
-        app_fixture.course_edit.click_on_button(LocatorsCourseEditPage.SAVE_AND_RETURN)
+        app_fixture.personal_account.go_to_side_panel()
+        app_fixture.personal_account.go_to_admin_page()
+        app_fixture.admin_page.go_to_course_management()
+        app_fixture.course_management.go_to_create_new_course()
+        full_name_field = app_fixture.course_edit.find_full_name_field()
+        full_name = NewCourse.random().full_name
+        app_fixture.course_edit.fill_element(full_name_field, full_name)
+        short_name_field = app_fixture.course_edit.find_short_name_field()
+        short_name = NewCourse.random().short_name
+        app_fixture.course_edit.fill_element(short_name_field, short_name)
+        app_fixture.course_edit.click_on_save_and_return()
         with allure.step("Проверяем позитивный кейс создания нового курса"):
-            search = app_fixture.course_management.find_element(
-                LocatorsCourseManagementPage.SEARCH
-            )
-            app_fixture.course_management.fill_element(search, add_full_name)
-            app_fixture.course_management.click_on_button(
-                LocatorsCourseManagementPage.SEARCH_BUTTON
-            )
-            assert app_fixture.course_management.find_element(
-                LocatorsCourseManagementPage.SEARCH_RESULT
-            )
-        app_fixture.course_management.course_name(add_full_name)
-        app_fixture.course_management.click_element(
-            app_fixture.course_management.delete()
-        )
-        app_fixture.course_delete.click_on_button(
-            LocatorsCourseDeletePage.BUTTON_DELETE
-        )
+            search_field = app_fixture.course_management.find_search_field()
+            app_fixture.course_management.fill_element(search_field, full_name)
+            app_fixture.course_management.click_on_search_button()
+            assert app_fixture.course_management.search_result()
+        app_fixture.course_management.find_course_name(full_name)
+        app_fixture.course_management.click_delete_icon()
+        app_fixture.course_delete.confirm_delete()
 
     @allure.story("Негативный тест")
     def test_add_course_with_empty_required_field(

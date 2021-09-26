@@ -18,5 +18,11 @@ class PersonalAccountPage(BasePage):
     def side_panel(self) -> WebElement:
         return self.find_element(LocatorsPersonalAccount.SIDE_PANEL)
 
+    def go_to_side_panel(self):
+        self.click_element(self.side_panel())
+
     def administration(self) -> WebElement:
         return self.find_element(LocatorsPersonalAccount.ADMINISTRATION)
+
+    def go_to_admin_page(self):
+        self.click_element(self.administration())
