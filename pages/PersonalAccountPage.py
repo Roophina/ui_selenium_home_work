@@ -26,3 +26,6 @@ class PersonalAccountPage(BasePage):
 
     def go_to_admin_page(self):
         self.click_element(self.administration())
+
+    def check_personal_account(self):
+        return self.find_element(LocatorsPersonalAccount.PERSONAL_ACCOUNT)

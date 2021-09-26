@@ -1,9 +1,6 @@
 import allure
 
 from common.constants import Constants
-from locators.locators_login_page import LocatorsLoginPage
-from locators.locators_main_page import LocatorsMainPage
-from locators.locators_personal_account import LocatorsPersonalAccount
 
 
 class TestAuthorization:
@@ -21,15 +18,15 @@ class TestAuthorization:
         8. Check authorization.
         """
         app_fixture.open_main_page()
-        app_fixture.main_page.click_on_link(LocatorsMainPage.LINK_ENTER)
-        login = app_fixture.login_page.find_element(LocatorsLoginPage.LOGIN)
-        app_fixture.login_page.fill_element(login, Constants.VALID_LOGIN)
-        password = app_fixture.login_page.find_element(LocatorsLoginPage.PASSWORD)
-        app_fixture.login_page.fill_element(password, Constants.VALID_PASSWORD)
-        app_fixture.login_page.click_on_button(LocatorsLoginPage.BUTTON_ENTER)
+        app_fixture.main_page.click_on_enter_link()
+        login_field = app_fixture.login_page.find_login_field()
+        app_fixture.login_page.fill_element(login_field, Constants.VALID_LOGIN)
+        password_field = app_fixture.login_page.find_password_field()
+        app_fixture.login_page.fill_element(password_field, Constants.VALID_PASSWORD)
+        app_fixture.login_page.click_on_enter_button()
         with allure.step("Проверяем авторизацию с валидными данными"):
-            assert app_fixture.personal_account.find_element(
-                LocatorsPersonalAccount.PERSONAL_ACCOUNT
+            assert (
+                app_fixture.personal_account.check_personal_account()
             ), "couldn't log in with valid data"
         app_fixture.personal_account.exit_from_account()
 
@@ -45,13 +42,13 @@ class TestAuthorization:
         6. Check authorization.
         """
         app_fixture.open_main_page()
-        app_fixture.main_page.click_on_link(LocatorsMainPage.LINK_ENTER)
-        password = app_fixture.login_page.find_element(LocatorsLoginPage.PASSWORD)
-        app_fixture.login_page.fill_element(password, Constants.VALID_PASSWORD)
-        app_fixture.login_page.click_on_button(LocatorsLoginPage.BUTTON_ENTER)
+        app_fixture.main_page.click_on_enter_link()
+        password_field = app_fixture.login_page.find_password_field()
+        app_fixture.login_page.fill_element(password_field, Constants.VALID_PASSWORD)
+        app_fixture.login_page.click_on_enter_button()
         with allure.step("Проверяем авторизацию с пустым логином"):
-            assert app_fixture.login_page.find_element(
-                LocatorsLoginPage.LOGIN_ERROR_MESSAGE
+            assert (
+                app_fixture.login_page.find_login_error_message()
             ), "something went wrong"
 
     @allure.story("Негативный тест")
@@ -66,13 +63,13 @@ class TestAuthorization:
         6. Check authorization.
         """
         app_fixture.open_main_page()
-        app_fixture.main_page.click_on_link(LocatorsMainPage.LINK_ENTER)
-        login = app_fixture.login_page.find_element(LocatorsLoginPage.LOGIN)
-        app_fixture.login_page.fill_element(login, Constants.VALID_LOGIN)
-        app_fixture.login_page.click_on_button(LocatorsLoginPage.BUTTON_ENTER)
+        app_fixture.main_page.click_on_enter_link()
+        login_field = app_fixture.login_page.find_login_field()
+        app_fixture.login_page.fill_element(login_field, Constants.VALID_LOGIN)
+        app_fixture.login_page.click_on_enter_button()
         with allure.step("Проверяем авторизацию с пустым паролем"):
-            assert app_fixture.login_page.find_element(
-                LocatorsLoginPage.LOGIN_ERROR_MESSAGE
+            assert (
+                app_fixture.login_page.find_login_error_message()
             ), "something went wrong"
 
     @allure.story("Негативный тест")
@@ -89,13 +86,13 @@ class TestAuthorization:
         8. Check authorization.
         """
         app_fixture.open_main_page()
-        app_fixture.main_page.click_on_link(LocatorsMainPage.LINK_ENTER)
-        login = app_fixture.login_page.find_element(LocatorsLoginPage.LOGIN)
-        app_fixture.login_page.fill_element(login, Constants.INVALID_LOGIN)
-        password = app_fixture.login_page.find_element(LocatorsLoginPage.PASSWORD)
-        app_fixture.login_page.fill_element(password, Constants.VALID_PASSWORD)
-        app_fixture.login_page.click_on_button(LocatorsLoginPage.BUTTON_ENTER)
+        app_fixture.main_page.click_on_enter_link()
+        login_field = app_fixture.login_page.find_login_field()
+        app_fixture.login_page.fill_element(login_field, Constants.INVALID_LOGIN)
+        password_field = app_fixture.login_page.find_password_field()
+        app_fixture.login_page.fill_element(password_field, Constants.VALID_PASSWORD)
+        app_fixture.login_page.click_on_enter_button()
         with allure.step("Проверяем авторизацию с невалидным логином"):
-            assert app_fixture.login_page.find_element(
-                LocatorsLoginPage.LOGIN_ERROR_MESSAGE
+            assert (
+                app_fixture.login_page.find_login_error_message()
             ), "something went wrong"
