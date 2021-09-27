@@ -33,18 +33,10 @@
 
 1) Установить локально Allure commandline application (посмотреть инструкцию можно [здесь](https://docs.qameta.io/allure/))
 
-2) Выполнить в терминале команду `pytest --alluredir=allure_reports`
+2) Перезапустить PyCharm
 
-3) Перезапустить PyCharm
+3) Установить allure-pytest командой в терминале `pip install allure-pytest`
 
-4) Выполнить в терминале команду `allure serve allure_reports`
+4) Создать папку для загрузки временных результатов тестов и запустить тесты командой в терминале `pytest --alluredir reposts`
 
-И/ИЛИ
-
-1) Установить allure-pytest командой в терминале `pip install allure-pytest`
-
-2) Создать папку для загрузки временных результатов тестов и запустить тесты командой в терминале `pytest --alluredir reposts`
-
-    2.1. Если папка для загрузки временных результатов уже создана, то для запуска тестов выполнить команду в терминале `python -m pytest tests .\reposts`
-
-3) Сформировать отчет командой в терминале `allure serve .\reposts`
+5) Сформировать отчет командой в терминале `allure serve .\reposts`
